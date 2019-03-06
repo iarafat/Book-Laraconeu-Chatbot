@@ -28,4 +28,9 @@ class Subscriber extends Model
         }
     }
 
+    public static function tester()
+    {
+        return Subscriber::where('is_tester', 1)->get();
+    }
+
 }
