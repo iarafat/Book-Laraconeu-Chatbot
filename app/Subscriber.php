@@ -33,4 +33,9 @@ class Subscriber extends Model
         return Subscriber::where('is_tester', 1)->get();
     }
 
+    public function getDriverClass()
+    {
+        return 'BotMan\Drivers\\'.$this->driver.'\\'.$this->driver.'Driver';
+    }
+
 }

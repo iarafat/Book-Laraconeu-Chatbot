@@ -18,8 +18,9 @@ class NotificationController extends Controller
 
         $receivers = $receivers === 'all' ? Subscriber::all() : Subscriber::where('chat_id', $receivers)->get();
 
+
         $receivers->each(function ($receiver) use ($botman, $message){
-            $botman->say($message, $receiver->chat_id, TelegramDriver::class);
+            $botman->say($message, $receiver->chat_id, $receiver->getDriverClass());
         });
         return back();
     }

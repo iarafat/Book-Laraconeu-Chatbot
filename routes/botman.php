@@ -11,6 +11,7 @@ use App\Conversations\FaqSpeakersConversation;
 use App\Conversations\FaqSponsorsConversation;
 use App\Conversations\FaqWhoIsItForConversation;
 use App\Conversations\OnboardingConversation;
+use App\Conversations\PrivacySubscriptionConversation;
 use App\Http\Controllers\BotManController;
 use BotMan\BotMan\BotMan;
 use BotMan\BotMan\Middleware\Dialogflow;
@@ -66,5 +67,9 @@ $botman->group(['middleware' => $dialogflow], function (BotMan $bot){
 
     $bot->hears('faq.schedule', function (BotMan $bot){
         $bot->startConversation(new FaqScheduleConversation());
+    })->stopsConversation();
+
+    $bot->hears('privacy.subscription', function (BotMan $bot){
+        $bot->startConversation(new PrivacySubscriptionConversation());
     })->stopsConversation();
 });
