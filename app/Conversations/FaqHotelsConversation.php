@@ -13,6 +13,6 @@ class FaqHotelsConversation extends Conversation
      */
     public function run()
     {
-        //
+        $this->say('Any hotel close to Amsterdam Central Station would be suitable. In the coming days, there will be several hotel partner deals announced.');
     }
 }

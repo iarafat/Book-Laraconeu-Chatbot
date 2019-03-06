@@ -2,6 +2,7 @@
 
 namespace App\Conversations;
 
+use App\Talk;
 use BotMan\BotMan\Messages\Conversations\Conversation;
 
 class FaqScheduleConversation extends Conversation
@@ -13,6 +14,6 @@ class FaqScheduleConversation extends Conversation
      */
     public function run()
     {
-        //
+        $this->say(Talk::asScheduleTextMessage());
     }
 }

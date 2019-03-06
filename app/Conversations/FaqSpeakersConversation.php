@@ -2,6 +2,7 @@
 
 namespace App\Conversations;
 
+use App\Speaker;
 use BotMan\BotMan\Messages\Conversations\Conversation;
 
 class FaqSpeakersConversation extends Conversation
@@ -13,6 +14,6 @@ class FaqSpeakersConversation extends Conversation
      */
     public function run()
     {
-        //
+        $this->say("These are the confirmed speakers: \n".Speaker::asTextMessage());
     }
 }

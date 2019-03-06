@@ -13,6 +13,6 @@ class FaqWhoIsItForConversation extends Conversation
      */
     public function run()
     {
-        //
+        $this->say('Are you a developer who has a passion for building web-applications? Do you love Laravel or are just in the process of gettingstarted? Do you want to meet the community members that help make it all happen? Then this is the place to be. Laracon EU is the single largest gathering of Laravel developers and enthusiasts in Europe. It\'s a g    reat opportunity to meet and learn from a diverse group of people that work in your space .');
     }
 }

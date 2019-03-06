@@ -13,6 +13,6 @@ class FaqLanguageConversation extends Conversation
      */
     public function run()
     {
-        //
+        $this->say('All sessions will be in English.');
     }
 }
