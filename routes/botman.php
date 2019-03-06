@@ -19,3 +19,22 @@ $botman->hears('/start|GET_STARTED', function (BotMan $bot){
 /*$botman->hears('faq.date', function (BotMan $bot){
     $bot->reply('FAQ Date triggered');
 })->middleware($dialogflow);*/
+
+$botman->group(['middleware' => $dialogflow], function (BotMan $bot) {
+    $faqActions = collect([
+        'faq.date',
+        'faq.location',
+        'faq.codeofconduct',
+        'faq.hotels',
+        'faq.journey',
+        'faq.schedule',
+        'faq.speakers',
+        'faq.sponsors',
+        'faq.whoisitfor',
+        'faq.language',
+    ]);
+    $bot->hears($faqActions->implode('|'), function (BotMan $bot){
+        $triggeredAction = $bot->getMessage()->getExtras()['apiAction'];
+        $bot->reply("Triggered action {$triggeredAction}");
+    })->stopsConversation();
+});
