@@ -27,7 +27,7 @@ $botman->hears('Hi', function ($bot) {
 });
 $botman->hears('/start|GET_STARTED', function (BotMan $bot){
     $bot->startConversation(new OnboardingConversation());
-});
+})->stopsConversation();
 
 $botman->group(['middleware' => $dialogflow], function (BotMan $bot){
     $bot->hears('faq.codeofconduct', function (BotMan $bot){

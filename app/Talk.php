@@ -30,17 +30,4 @@ class Talk extends Model
             return $talkByDay->implode("\n");
         })->implode("\n");
     }
-
-    /*public static function asScheduleTextMessage()
-    {
-        return static::all()->sortBy('start_at')->groupBy(function ($talk) {
-            return $talk->start_at->format('d.m.Y');
-        })->transform(function ($talkByDay, $key) {
-            $talkByDay->transform(function ($talk) {
-                return $talk->time.' - '.$talk->title;
-            });
-            $talkByDay->prepend('â†’ '.$key);
-            return $talkByDay->implode("\n");
-        })->implode("\n");
-    }*/
 }
