@@ -42,9 +42,9 @@ $botman->group(['middleware' => $dialogflow], function (BotMan $bot){
         $bot->startConversation(new FaqHotelsConversation());
     })->stopsConversation();
 
-    $bot->hears('faq.journey', function (BotMan $bot){
+    /*$bot->hears('faq.journey', function (BotMan $bot){
         $bot->startConversation(new FaqJourneyConversation());
-    })->stopsConversation();
+    })->stopsConversation();*/
 
     $bot->hears('faq.language', function (BotMan $bot){
         $bot->startConversation(new FaqLanguageConversation());
