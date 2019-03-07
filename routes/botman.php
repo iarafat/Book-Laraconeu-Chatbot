@@ -11,6 +11,7 @@ use App\Conversations\FaqSpeakersConversation;
 use App\Conversations\FaqSponsorsConversation;
 use App\Conversations\FaqWhoIsItForConversation;
 use App\Conversations\OnboardingConversation;
+use App\Conversations\PrivacyPersonalDataConversation;
 use App\Conversations\PrivacySubscriptionConversation;
 use App\Http\Controllers\BotManController;
 use BotMan\BotMan\BotMan;
@@ -71,5 +72,9 @@ $botman->group(['middleware' => $dialogflow], function (BotMan $bot){
 
     $bot->hears('privacy.subscription', function (BotMan $bot){
         $bot->startConversation(new PrivacySubscriptionConversation());
+    })->stopsConversation();
+
+    $bot->hears('privacy.personaldata', function (BotMan $bot){
+        $bot->startConversation(new PrivacyPersonalDataConversation());
     })->stopsConversation();
 });
