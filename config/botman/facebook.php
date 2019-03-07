@@ -77,24 +77,33 @@ return [
     'persistent_menu' => [
         [
             'locale' => 'default',
-            'composer_input_disabled' => 'true',
+            'composer_input_disabled' => 'false',
             'call_to_actions' => [
                 [
-                    'title' => 'My Account',
+                    'title' => 'Speakers',
+                    'type' => 'postback',
+                    'payload' => 'faq.speakers',
+                ],
+                [
+                    'title' => 'Schedule',
+                    'type' => 'postback',
+                    'payload' => 'faq.schedule',
+                ],
+                [
+                    'title' => 'Privacy',
                     'type' => 'nested',
                     'call_to_actions' => [
                         [
-                            'title' => 'Pay Bill',
+                            'title' => 'Show stored data',
                             'type' => 'postback',
-                            'payload' => 'PAYBILL_PAYLOAD',
+                            'payload' => 'privacy.personaldata',
+                        ],
+                        [
+                            'title' => 'Edit subscription',
+                            'type' => 'postback',
+                            'payload' => 'privacy.subscription',
                         ],
                     ],
-                ],
-                [
-                    'type' => 'web_url',
-                    'title' => 'Latest News',
-                    'url' => 'http://botman.io',
-                    'webview_height_ratio' => 'full',
                 ],
             ],
         ],

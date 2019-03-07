@@ -13,7 +13,7 @@ use App\Conversations\FaqWhoIsItForConversation;
 use App\Conversations\OnboardingConversation;
 use App\Conversations\PrivacyPersonalDataConversation;
 use App\Conversations\PrivacySubscriptionConversation;
-use App\Http\Controllers\BotManController;
+use App\Http\Middleware\AddTypingIndicator;
 use BotMan\BotMan\BotMan;
 use BotMan\BotMan\Middleware\Dialogflow;
 
@@ -21,6 +21,10 @@ $botman = resolve('botman');
 
 $dialogflow = Dialogflow::create(getenv('DIALOGFLOW_TOKEN'))->listenForAction();
 $botman->middleware->received($dialogflow);
+
+$middleware = new AddTypingIndicator();
+$botman->middleware->sending($middleware);
+
 
 $botman->hears('Hi', function ($bot) {
     $bot->reply('Hello!');
@@ -42,9 +46,9 @@ $botman->group(['middleware' => $dialogflow], function (BotMan $bot){
         $bot->startConversation(new FaqHotelsConversation());
     })->stopsConversation();
 
-    /*$bot->hears('faq.journey', function (BotMan $bot){
+    $bot->hears('faq.journey', function (BotMan $bot){
         $bot->startConversation(new FaqJourneyConversation());
-    })->stopsConversation();*/
+    })->stopsConversation();
 
     $bot->hears('faq.language', function (BotMan $bot){
         $bot->startConversation(new FaqLanguageConversation());
