@@ -10,7 +10,7 @@ use BotMan\Drivers\Facebook\Extensions\ElementButton;
 use BotMan\Drivers\Facebook\Extensions\GenericTemplate;
 class FaqLocationConversationTest extends TestCase
 {
-   /* public function test_it_shows_telegram_location()
+    public function test_it_shows_telegram_location()
     {
         $attachment = new Location(52.3832816, 4.9205266);
         $message = OutgoingMessage::create('')->withAttachment($attachment);
@@ -23,10 +23,12 @@ class FaqLocationConversationTest extends TestCase
     {
         $message = GenericTemplate::create()->addElement(Element::create('Laracon EU Location')
             ->image('http://screenshots.nomoreencore.com/laracon_map.png')
-            ->addButton(ElementButton::create('See surrounding')->url('https://snazzymaps.com/embed/69943 ')));
+            ->addButton(ElementButton::create('See surrounding')->url('https://snazzymaps.com/embed/69943')));
+
         $this->bot->setDriver(FacebookDriver::class)
             ->receives('faq.location')
             ->assertReply('Laracon EU 2018 is located in beautiful Amsterdam.')
             ->assertTemplate($message, true);
-    }*/
+
+    }
 }
